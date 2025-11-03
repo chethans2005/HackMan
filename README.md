@@ -2,21 +2,6 @@
 
 A sophisticated AI agent that combines **Hidden Markov Model (HMM) pattern analysis** with **Deep Q-Learning** to solve Hangman games with high accuracy.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Key Components](#key-components)
-- [Training Details](#training-details)
-- [Results](#results)
-- [Improving Performance](#improving-performance)
-- [File Descriptions](#file-descriptions)
-
----
-
 ## 🎯 Overview
 
 This project trains an intelligent Hangman solver that:
@@ -383,44 +368,6 @@ Each step shows:
 
 ---
 
-## 📝 File Descriptions
-
-### `hangman_hmm_rl_train.ipynb`
-Main Jupyter notebook with 21 cells:
-- Data loading and preprocessing
-- HMM and game environment setup
-- Neural network definition
-- Training loop
-- Evaluation and visualization
-- Interactive Gradio interface
-
-### `corpus.txt`
-Dictionary of training words (one per line, lowercase)
-
-### `test.txt`
-Test set words for evaluation (should be different from corpus)
-
-### `checkpoint_ep*.pth`
-PyTorch checkpoints saved during training containing:
-- Q-network weights
-- Target network weights
-- Optimizer state
-- Training statistics
-
-### `hangman_hmm_rl_final.pth`
-Final trained model (can be loaded separately)
-
-### `hmm_components.pkl`
-Pickled HMM components (trigrams, bigrams, corpus) for later use
-
-### `training_progress.png`
-6-subplot visualization of training metrics
-
-### `test_results.json`
-JSON file with test evaluation metrics
-
----
-
 ## 🔍 Diagnosing Performance Issues
 
 ### Model is Underfitting
@@ -469,41 +416,6 @@ checkpoint = torch.load('hangman_hmm_rl_final.pth')
 agent.q_network.load_state_dict(checkpoint['q_network_state_dict'])
 agent.target_network.load_state_dict(checkpoint['target_network_state_dict'])
 ```
-
----
-
-## 📚 References
-
-- **Reinforcement Learning:** Sutton & Barto, "Reinforcement Learning: An Introduction"
-- **Deep Q-Learning:** Mnih et al., "Human-level control through deep reinforcement learning" (Nature 2015)
-- **Double DQN:** Van Hasselt et al., "Deep Reinforcement Learning with Double Q-learning"
-- **HMM:** Rabiner & Juang, "Fundamentals of Speech Recognition"
-
----
-
-## 📧 Troubleshooting
-
-### CUDA Out of Memory
-- Reduce batch size: `batch_size=32`
-- Reduce network size (fewer neurons)
-- Use CPU: `torch.device('cpu')`
-
-### Corpus Loading Fails
-- Check file encoding: `encoding='utf-8'`
-- Ensure file exists in working directory
-- Check for null bytes or unusual characters
-
-### Gradio Won't Launch
-- Ensure Gradio is installed: `pip install gradio`
-- Try without `share=True`: `demo.launch()`
-- Check firewall settings
-
-### Model Training Takes Too Long
-- Use GPU (check `torch.cuda.is_available()`)
-- Reduce num_episodes
-- Increase batch_size (faster per update)
-- Reduce save_freq
-
 ---
 
 ## 🎓 Learning Outcomes
@@ -521,19 +433,14 @@ By studying this project, you'll understand:
 
 ---
 
-## 📄 License
-
-This project is created for educational purposes.
-
----
-
 ## 👤 Author
 
-**Chethan S**  
+**Chethan S [PES2UG233CS150]**  
+**Chinthan K [PES2UG233CS155]**  
+**Christananda B [PES2UG233CS158]**  
+**Devraj Naik [PES2UG233CS167]**  
+
 ML Hackathon Project - PES University
 
 ---
-
-**Happy learning! 🚀**
-
-For questions or improvements, refer to the inline comments in `hangman_hmm_rl_train.ipynb`.
+.
